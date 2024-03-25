@@ -29,3 +29,4 @@
 
 #define NO_MUSIC_MODE
 
+#define RGBLIGHT_SPLIT
