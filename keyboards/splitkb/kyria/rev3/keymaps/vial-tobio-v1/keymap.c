@@ -228,14 +228,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 
 #ifdef OLED_ENABLE
-oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
-    return OLED_ROTATION_180;
-}
-
-bool oled_task_kb(void) {
-    if (!oled_task_user()) {
-        return false;
-    }
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
         // QMK Logo and version information
         // clang-format off
@@ -246,14 +239,8 @@ bool oled_task_kb(void) {
         // clang-format on
 
         oled_write_P(qmk_logo, false);
-        oled_write_P(PSTR("Kyria "), false);
-#if defined(KEYBOARD_splitkb_kyria_rev1)
-        oled_write_P(PSTR("rev1\n\n"), false);
-#elif defined(KEYBOARD_splitkb_kyria_rev2)
-        oled_write_P(PSTR("rev2\n\n"), false);
-#elif defined(KEYBOARD_splitkb_kyria_rev3)
-        oled_write_P(PSTR("rev3\n\n"), false);
-#endif
+        oled_write_P(PSTR("Kyria rev3"), false);
+
         // Host Keyboard Layer Status
         oled_write_P(PSTR("Layer: "), false);
         switch (get_highest_layer(layer_state | default_layer_state)) {
@@ -304,11 +291,7 @@ bool oled_task_kb(void) {
 #endif
 
 #ifdef ENCODER_ENABLE
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) {
-        return false;
-    }
-
+bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         // Volume control
         if (clockwise) {
