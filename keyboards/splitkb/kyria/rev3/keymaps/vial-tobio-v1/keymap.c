@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      LSFT(KC_1)     , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                               KC_J   ,   KC_L ,  KC_U ,   KC_Y ,  KC_SCLN , KC_MINS,
      LSFT(KC_SLSH)  , KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                               KC_M   ,   KC_N ,  KC_E ,   KC_I ,  KC_O    , CTL_QUOT,
      KC_CAPS        , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_LALT ,KC_LGUI,         KC_AMPR  , KC_LCTL, KC_K   ,   KC_H ,KC_COMM, KC_DOT ,  KC_SLSH , KC_GRV  ,
-                                       ADJUST , KC_ESC , KC_DEL , KC_BSPC ,KC_LSFT,         KC_RSFT  , KC_SPC , KC_ENT , KC_TAB , KC_APP
+                                       ADJUST , KC_ESC , KC_DEL , KC_BSPC ,KC_LSFT,         KC_RSFT  , KC_SPC , KC_ENT , KC_TAB , FKEYS
     ),
 
 /*
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |        |  GUI |  Alt | Ctrl | Shift|      |                              | PgDn |  ←   |   ↓  |   →  | VolDn| Insert |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |ScLck |  |      |      | Pause|M Prev|M Play|M Next|VolMut| PrtSc  |
+ * |        |      |      |      |      |      |      |      |  |      |      | Pause|M Prev|M Play|M Next|VolMut| PrtSc  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
@@ -71,8 +71,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_NAV] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                                                 KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_VOLU, KC_DEL,
-      _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                                                 KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, KC_INS,
-      _______, _______, _______, _______, _______, _______, _______, KC_SCRL,            _______, _______, KC_PAUSE, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_PSCR,
+      _______, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, _______,                                                 KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, KC_INS,
+      _______, _______, _______, _______, _______, _______, _______, _______,            _______, _______, KC_PAUSE, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_PSCR,
                                  _______, _______, _______, _______, _______,            _______, _______, _______, _______, _______
     ),
 
@@ -80,20 +80,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Sym Layer: Numbers and symbols
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  >   |  ]   |  }   |  )   |  |   |                              |   -  |  7   |  8   |  9   |  :   |    _   |
+ * |        |  >   |  ]   |  }   |  )   |  #   |                              |   -  |  7   |  8   |  9   |  :   |    _   |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |        |  <   |  [   |  {   |  (   |  @   |                              |   =  |  4   |  5   |  6   |  %   |    `   |
  * |--------+------+------+------+------+------+-------------.  ,------+-------------+------+------+------+------+--------|
- * |        |  ^   |  ~   |  $   |  &   |  #   |      |      |  |      |      |   +  |  1   |  2   |  3   |  /   |        |
+ * |        |  ^   |  ~   |  $   |  &   |  |   |      |      |  |      |      |   +  |  1   |  2   |  3   |  /   |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |   0  |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SYM] = LAYOUT(
-     _______ , LSFT(KC_DOT) , KC_RBRC     , LSFT(KC_RBRC), LSFT(KC_0) , LSFT(KC_BSLS),                                               KC_MINS,   KC_7 ,   KC_8 ,   KC_9 , LSFT(KC_SCLN) , LSFT(KC_MINS), 
+     _______ , LSFT(KC_DOT) , KC_RBRC     , LSFT(KC_RBRC), LSFT(KC_0) , LSFT(KC_3),                                               KC_MINS,   KC_7 ,   KC_8 ,   KC_9 , LSFT(KC_SCLN) , LSFT(KC_MINS), 
      _______ , LSFT(KC_COMM), KC_LBRC     , LSFT(KC_LBRC), LSFT(KC_9) , LSFT(KC_2)   ,                                               KC_EQL ,   KC_4 ,   KC_5 ,   KC_6 , LSFT(KC_5)    , KC_GRV       , 
-     _______ , LSFT(KC_6)   , LSFT(KC_GRV), LSFT(KC_4)   , LSFT(KC_7) , LSFT(KC_3)   , _______, _______,           _______, _______, KC_PLUS,   KC_1 ,   KC_2 ,   KC_3 , KC_SLSH       , KC_QUES      ,
+     _______ , LSFT(KC_6)   , LSFT(KC_GRV), LSFT(KC_4)   , LSFT(KC_7) , LSFT(KC_BSLS)   , _______, _______,           _______, _______, KC_PLUS,   KC_1 ,   KC_2 ,   KC_3 , KC_SLSH       , KC_QUES      ,
                                             _______      , _______    , _______      , _______, _______,           _______, _______, KC_0   , _______, _______
     ),
 
@@ -113,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_FUNCTION] = LAYOUT(
       _______, _______, _______, _______,  _______, _______,                                               _______,  KC_F9 ,  KC_F10,  KC_F11,  KC_F12, _______,
-      _______, KC_LALT, KC_LGUI, KC_LSFT,  KC_LCTL, _______,                                               _______,  KC_F5 ,  KC_F6 ,  KC_F7 ,  KC_F8 , _______,
+      _______, KC_LCTL, KC_LALT, KC_LGUI,  KC_LSFT, _______,                                               _______,  KC_F5 ,  KC_F6 ,  KC_F7 ,  KC_F8 , _______,
       _______, _______, _______, _______,  _______, _______, _______, _______,           _______, _______, _______,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 , _______,
                                  _______,  _______, _______, _______, _______,           _______, _______, _______, _______, _______
     ),
@@ -172,60 +172,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [5] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };
 #endif
-
-
-// // LIGHT LAYERS
-// const rgblight_segment_t PROGMEM _BASE_RGB[]     = RGBLIGHT_LAYER_SEGMENTS(
-//     {0, 10, 176 ,255, 255}
-// );
-// const rgblight_segment_t PROGMEM _NAVI[]   = RGBLIGHT_LAYER_SEGMENTS(
-//     {0, 10, 21, 255, 255}
-// );
-// const rgblight_segment_t PROGMEM _SYMB[]   = RGBLIGHT_LAYER_SEGMENTS(
-//     {0, 10, 100, 255, 255}
-// );
-// const rgblight_segment_t PROGMEM _FUN[]     = RGBLIGHT_LAYER_SEGMENTS(
-//     {0, 10, 190, 255, 255}
-// );
-// const rgblight_segment_t PROGMEM _ADJ[]     = RGBLIGHT_LAYER_SEGMENTS(
-//     {0, 10, 220, 255, 255}
-// );
-// const rgblight_segment_t PROGMEM _MAC[]     = RGBLIGHT_LAYER_SEGMENTS(
-//     {0, 10, 220, 255, 255}
-// );
-
-
-
-// const rgblight_segment_t* const PROGMEM _LAYER_COLOURS[] = RGBLIGHT_LAYERS_LIST(
-//     _BASE_RGB,
-//     _NAVI,
-//     _SYMB,
-//     _FUN,
-//     _ADJ,
-//     _MAC
-// ); 
-
-// void keyboard_post_init_user(void) {
-//     // Enable the LED layers
-//     rgblight_layers = _LAYER_COLOURS;
-// };
-
-// layer_state_t default_layer_state_set_user(layer_state_t state) {
-//     rgblight_set_layer_state(0, layer_state_cmp(state, _BASE));
-//     return state;
-// };
-
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     rgblight_set_layer_state(0, layer_state_cmp(state, _BASE));
-//     rgblight_set_layer_state(1, layer_state_cmp(state, _NAV));
-//     rgblight_set_layer_state(2, layer_state_cmp(state, _SYM));
-//     rgblight_set_layer_state(3, layer_state_cmp(state, _FUNCTION));
-//     rgblight_set_layer_state(4, layer_state_cmp(state, _ADJUST));
-//     rgblight_set_layer_state(5, layer_state_cmp(state, _MACRO));
-//     return state;
-// };
-
-
 
 #ifdef OLED_ENABLE
 bool oled_task_user(void) {
