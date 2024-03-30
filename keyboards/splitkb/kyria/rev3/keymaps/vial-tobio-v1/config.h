@@ -26,11 +26,13 @@
 #define VIAL_COMBO_ENTRIES 20
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define SPLIT_MODS_ENABLE
 
 #define NO_MUSIC_MODE
 
 #define RGBLIGHT_SPLIT
 #define RGBLIGHT_SLEEP
+
 
 // Limit brightness of LEDs to limit voltage
 #define RGBLIGHT_LIMIT_VAL 80
