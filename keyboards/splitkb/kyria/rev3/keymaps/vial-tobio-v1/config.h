@@ -30,3 +30,7 @@
 #define NO_MUSIC_MODE
 
 #define RGBLIGHT_SPLIT
+#define RGBLIGHT_SLEEP
+
+// Limit brightness of LEDs to limit voltage
+#define RGBLIGHT_LIMIT_VAL 80
