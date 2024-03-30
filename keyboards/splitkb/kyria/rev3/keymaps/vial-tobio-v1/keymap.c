@@ -186,10 +186,9 @@ bool oled_task_user(void) {
         // clang-format on
 
         oled_write_P(qmk_logo, false);
-        oled_write_P(PSTR("\nTobio\n"), false);
+        oled_write_P(PSTR("\nTobio: "), false);
 
         // Host Keyboard Layer Status
-        oled_write_P(PSTR("Layer: "), false);
         switch (get_highest_layer(layer_state | default_layer_state)) {
             case 0:
                 oled_write_P(PSTR("BASE\n"), false);
@@ -215,11 +214,23 @@ bool oled_task_user(void) {
 
         // Host Keyboard LED Status
         led_t led_usb_state = host_keyboard_led_state();
-        oled_write_P(led_usb_state.num_lock ? PSTR("NUMLCK ") : PSTR("       "), false);
-        oled_write_P(led_usb_state.caps_lock ? PSTR("CAPLCK ") : PSTR("       "), false);
-        oled_write_P(led_usb_state.scroll_lock ? PSTR("SCRLCK ") : PSTR("       "), false);
+        oled_write_P(led_usb_state.caps_lock ? PSTR("CAPLCK \n") : PSTR("       \n"), false);
+
+        // Capword
+        oled_write_P(is_caps_word_on() ? PSTR("CAPWRD \n") : PSTR("       \n"), false);
+
+        uint8_t mod = get_mods() | get_oneshot_mods();
+
+
+        oled_write_P(PSTR("/ "), false);
+        
+        oled_write_P(mod & MOD_MASK_GUI  ? PSTR("GUI / ") : PSTR("    / "), false);
+        oled_write_P(mod & MOD_MASK_ALT  ? PSTR("ALT / ") : PSTR("    / "), false);
+        oled_write_P(mod & MOD_MASK_CTRL ? PSTR("CTL / ") : PSTR("    / "), false);
+
     } else {
         oled_write_raw_P(atlas_logo, sizeof(atlas_logo));
+
     }
     return false;
 }
